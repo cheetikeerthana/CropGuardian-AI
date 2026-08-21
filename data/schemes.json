@@ -1,0 +1,54 @@
+{
+  "schemes": [
+    {
+      "id": "pm-kisan",
+      "name": "PM-KISAN",
+      "category": "Income Support",
+      "badge": "Direct Benefit Transfer",
+      "description": "Provides \u20b96,000 per year direct income support in three equal installments to eligible landholding farmer families across India to meet agricultural inputs and domestic needs.",
+      "link": "https://pmkisan.gov.in/",
+      "portalName": "Official PM-KISAN Portal",
+      "icon": "\ud83d\udcb0"
+    },
+    {
+      "id": "pmfby",
+      "name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+      "category": "Crop Insurance",
+      "badge": "Comprehensive Risk Cover",
+      "description": "Comprehensive yield insurance coverage against non-preventable natural risks, localized calamities, post-harvest losses, and widespread crop disease outbreaks at minimal premium rates.",
+      "link": "https://pmfby.gov.in/",
+      "portalName": "Official PMFBY Portal",
+      "icon": "\ud83d\udee1\ufe0f"
+    },
+    {
+      "id": "soil-health-card",
+      "name": "Soil Health Card Scheme",
+      "category": "Soil Management",
+      "badge": "Soil Nutrient Advisory",
+      "description": "Provides farmers with personalized crop-wise nutrient recommendations and soil health reports to optimize fertilizer use, improve soil fertility, and reduce input costs.",
+      "link": "https://soilhealth.dac.gov.in/",
+      "portalName": "Official Soil Health Portal",
+      "icon": "\ud83c\udf31"
+    },
+    {
+      "id": "kcc",
+      "name": "Kisan Credit Card (KCC)",
+      "category": "Credit Support",
+      "badge": "Affordable Farm Credit",
+      "description": "Provides timely access to short-term institutional credit for cultivation expenses, post-harvest costs, and maintenance of farm assets with interest subvention benefits.",
+      "link": "https://agricoop.nic.in/",
+      "portalName": "Official Ministry Portal (agricoop.nic.in)",
+      "icon": "\ud83d\udcb3"
+    },
+    {
+      "id": "kvk",
+      "name": "Krishi Vigyan Kendra (KVK)",
+      "category": "Agronomic Advisory",
+      "badge": "Expert Agro-Scientists",
+      "description": "District-level agricultural science centers providing front-line demonstrations, on-farm testing of crop protection technologies, disease diagnostics, and farmer training.",
+      "link": "https://kvk.icar.gov.in/",
+      "portalName": "Official ICAR KVK Portal",
+      "icon": "\ud83d\udd2c"
+    }
+  ]
+}

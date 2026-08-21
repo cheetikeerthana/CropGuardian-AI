@@ -1,0 +1,696 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CropGuardian AI — Early Crop Disease Detection & Decision Support</title>
+  <meta name="description" content="Helping farmers detect crop diseases early before they lose their harvest with AI-powered pathology detection and actionable decision support.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2322c55e'><path d='M12 2L9 9l-7 3 7 3 3 7 3-7 7-3-7-3z'/></svg>">
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-wrap">
+        <a href="#home" class="brand-logo" aria-label="CropGuardian AI Home">
+          <div class="brand-icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12c0-5.523 4.477-10 10-10z"/>
+              <path d="M12 6v12M8 10l8 4M8 14l8-4"/>
+            </svg>
+          </div>
+          <span>CropGuardian <span class="text-lime">AI</span></span>
+          <span class="brand-badge">PROTOTYPE</span>
+        </a>
+
+        <ul class="nav-links" id="navLinksList">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#scanner" class="nav-link">Crop Scanner</a></li>
+          <li><a href="#farmer-support" class="nav-link">Farmer Support</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button id="btnOpenHistoryModal" class="btn-icon-only" title="Saved Snapshots History" aria-label="View Saved Snapshots">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          </button>
+          
+          <button id="btnOpenApiModal" class="btn-icon-only" title="AI Settings / API Key" aria-label="Open AI Settings">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+
+          <a href="#scanner" class="btn btn-primary btn-scroll-scanner">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span>Scan My Crop</span>
+          </a>
+
+          <button id="mobileMenuToggle" class="btn-icon-only mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-pill-badge">
+              <span>🌿</span>
+              <span>AI-Powered Agricultural Decision Support</span>
+            </div>
+            
+            <h1 class="hero-title">
+              Detect Early.<br>
+              Act Smart.<br>
+              <span class="text-gradient">Protect Your Harvest.</span>
+            </h1>
+
+            <p class="hero-description">
+              AI-powered crop disease detection that helps farmers identify potential problems early and understand what action to take next.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#scanner" class="btn btn-primary btn-pulse btn-scroll-scanner">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                <span>Scan My Crop</span>
+              </a>
+              <a href="#how-it-works" class="btn btn-secondary btn-scroll-how">
+                <span>How It Works</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+
+            <div class="hero-trust-bar">
+              <div class="trust-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>5+ Multi-Crop Models</span>
+              </div>
+              <div class="trust-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Instant Risk Score</span>
+              </div>
+              <div class="trust-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Farmer Support Portals</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Graphic Card -->
+          <div>
+            <div class="hero-visual-card">
+              <svg class="hero-svg-art" viewBox="0 0 400 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="200" cy="180" r="140" fill="#15803d" opacity="0.2"/>
+                <path d="M200 40 C280 90 350 180 320 280 C290 340 220 360 200 370 C180 360 110 340 80 280 C50 180 120 90 200 40Z" fill="#15803d" stroke="#4ade80" stroke-width="3"/>
+                <path d="M200 40 L200 370" stroke="#86efac" stroke-width="3.5" stroke-linecap="round"/>
+                <path d="M200 130 Q260 160 300 190 M200 200 Q270 230 310 260 M200 270 Q250 300 280 330" stroke="#86efac" stroke-width="2" fill="none"/>
+                <path d="M200 130 Q140 160 100 190 M200 200 Q130 230 90 260 M200 270 Q150 300 120 330" stroke="#86efac" stroke-width="2" fill="none"/>
+                <circle cx="160" cy="190" r="34" stroke="#fbbf24" stroke-width="2.5" stroke-dasharray="6 4" fill="none"/>
+                <circle cx="160" cy="190" r="6" fill="#fbbf24"/>
+                <circle cx="245" cy="250" r="28" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="5 3" fill="none"/>
+                <circle cx="245" cy="250" r="5" fill="#ef4444"/>
+              </svg>
+
+              <div class="hero-floating-stat floating-stat-1">
+                <div class="floating-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="floating-stat-text">
+                  <h5>Tomato Early Blight</h5>
+                  <p>94% Match</p>
+                </div>
+              </div>
+
+              <div class="hero-floating-stat floating-stat-2">
+                <div class="floating-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <div class="floating-stat-text">
+                  <h5>Crop Risk Meter</h5>
+                  <p>78/100 Indicative Risk</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Statistics -->
+    <section class="impact-section">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card glass-card">
+            <div class="stat-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+            </div>
+            <h3 class="stat-title">Early Detection</h3>
+            <p class="stat-desc">Detect foliar pathogens at initial symptom onset before widespread field contagion occurs.</p>
+          </div>
+
+          <div class="stat-card glass-card">
+            <div class="stat-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <h3 class="stat-title">AI-Powered Analysis</h3>
+            <p class="stat-desc">Computer vision models evaluate leaf patterns, discoloration, and necrotic lesion distribution.</p>
+          </div>
+
+          <div class="stat-card glass-card">
+            <div class="stat-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="stat-title">Actionable Guidance</h3>
+            <p class="stat-desc">Decision-support risk scores, treatment windows, prevention tips, and verified support schemes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- How It Works -->
+    <section class="how-it-works-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">System Workflow</span>
+          <h2 class="section-title">Detect → Understand → Act</h2>
+          <p class="section-subtitle">A streamlined, 3-step decision support process designed for fast field diagnostics.</p>
+        </div>
+
+        <div class="workflow-steps-grid">
+          <div class="workflow-card glass-card">
+            <span class="step-number">STEP 01</span>
+            <div class="step-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </div>
+            <h3 class="step-title">01 — SCAN</h3>
+            <p class="step-desc">Capture or select a clear image of an affected leaf using your mobile camera or file picker.</p>
+          </div>
+
+          <div class="workflow-card glass-card">
+            <span class="step-number">STEP 02</span>
+            <div class="step-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3 class="step-title">02 — ANALYZE</h3>
+            <p class="step-desc">AI models inspect lesion margins, leaf textures, and discoloration to estimate condition and severity.</p>
+          </div>
+
+          <div class="workflow-card glass-card">
+            <span class="step-number">STEP 03</span>
+            <div class="step-icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h3 class="step-title">03 — ACT</h3>
+            <p class="step-desc">Receive your Crop Risk Score, treatment window, prevention tips, and relevant government schemes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Crop Scanner Section -->
+    <section class="scanner-section" id="scanner">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">AI Crop Diagnostics</span>
+          <h2 class="section-title">Scan Your Crop</h2>
+          <p class="section-subtitle">Capture a clear image of an affected leaf for instant AI analysis and risk evaluation.</p>
+        </div>
+
+        <div class="scanner-layout">
+          <!-- Dropzone & Preview Box -->
+          <div class="dropzone-container glass-card">
+            <input type="file" id="cropFileInput" accept="image/*" capture="environment" aria-label="Upload crop leaf photo">
+
+            <div class="dropzone-box" id="dropzoneBox" tabindex="0" role="button" aria-label="Click or drag and drop leaf photo">
+              <div class="dropzone-content">
+                <div class="dropzone-icon-circle">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                </div>
+                <div class="dropzone-text">
+                  <h4>Drag & Drop Leaf Photo Here</h4>
+                  <p>Supports JPG, PNG, WebP up to 10MB • Direct camera capture on mobile</p>
+                </div>
+                <div class="upload-button-row">
+                  <span class="btn btn-secondary" style="pointer-events: none; padding: 0.6rem 1.2rem; font-size: 0.88rem;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                    <span>Browse Files / Open Camera</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Preview Image Display -->
+            <div class="preview-container" id="previewContainer">
+              <div class="preview-image-wrap">
+                <div class="scanner-laser-beam"></div>
+                <img id="previewImage" class="preview-image" src="" alt="Selected leaf preview for analysis">
+              </div>
+              <div class="preview-footer-bar">
+                <div class="preview-meta">
+                  <span id="previewFileName">tomato_leaf_sample.svg</span>
+                  <span>•</span>
+                  <span id="previewFileSize" class="text-muted">Sample Preset</span>
+                </div>
+                <button id="btnRemovePreview" class="btn-remove-preview" aria-label="Remove selected image">
+                  <span>✕ Remove Image</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="scanner-controls">
+              <button id="btnAnalyze" class="btn btn-primary btn-analyze">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                <span>Analyze Crop</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Presets Sidebar Card -->
+          <div class="presets-card glass-card">
+            <div class="presets-header">
+              <h3>Demo Quick Presets</h3>
+              <span class="badge badge-pill">1-Click Test</span>
+            </div>
+            <p class="preset-instruction">Select any multi-crop sample to run the complete diagnostic flow instantly:</p>
+
+            <div class="preset-pills-list">
+              <button class="preset-item-btn active" data-preset="tomato-early-blight">
+                <div class="preset-left">
+                  <span class="preset-emoji">🍅</span>
+                  <div>
+                    <span class="preset-name">Tomato Early Blight</span>
+                    <span class="preset-crop-tag">Solanum lycopersicum</span>
+                  </div>
+                </div>
+                <span class="preset-badge preset-badge-high">High Risk</span>
+              </button>
+
+              <button class="preset-item-btn" data-preset="rice-leaf-blast">
+                <div class="preset-left">
+                  <span class="preset-emoji">🌾</span>
+                  <div>
+                    <span class="preset-name">Rice Leaf Blast</span>
+                    <span class="preset-crop-tag">Oryza sativa (Paddy)</span>
+                  </div>
+                </div>
+                <span class="preset-badge preset-badge-high">High Risk</span>
+              </button>
+
+              <button class="preset-item-btn" data-preset="cotton-leaf-spot">
+                <div class="preset-left">
+                  <span class="preset-emoji">🌱</span>
+                  <div>
+                    <span class="preset-name">Cotton Leaf Spot</span>
+                    <span class="preset-crop-tag">Gossypium hirsutum</span>
+                  </div>
+                </div>
+                <span class="preset-badge preset-badge-med">Moderate</span>
+              </button>
+
+              <button class="preset-item-btn" data-preset="potato-early-blight">
+                <div class="preset-left">
+                  <span class="preset-emoji">🥔</span>
+                  <div>
+                    <span class="preset-name">Potato Early Blight</span>
+                    <span class="preset-crop-tag">Solanum tuberosum</span>
+                  </div>
+                </div>
+                <span class="preset-badge preset-badge-med">Moderate</span>
+              </button>
+
+              <button class="preset-item-btn" data-preset="healthy-tomato">
+                <div class="preset-left">
+                  <span class="preset-emoji">✨</span>
+                  <div>
+                    <span class="preset-name">Healthy Tomato Leaf</span>
+                    <span class="preset-crop-tag">Optimal Condition</span>
+                  </div>
+                </div>
+                <span class="preset-badge preset-badge-healthy">Healthy</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analysis Loading Interface -->
+        <div class="analysis-loading-card glass-card" id="analysisLoadingCard">
+          <div class="loading-spinner-wrap">
+            <div class="loading-spinner-ring"></div>
+            <div class="loading-icon-center">🌿</div>
+          </div>
+
+          <h3 class="loading-headline">Analyzing your crop...</h3>
+          <p class="loading-subtext">Evaluating foliar patterns, lesion morphology, and calculating risk indices.</p>
+
+          <div class="loading-progress-bar-track">
+            <div class="loading-progress-bar-fill" id="loadingProgressFill"></div>
+          </div>
+
+          <div class="loading-stages-list">
+            <div class="stage-item" id="stage1">
+              <div class="stage-dot">1</div>
+              <span>Inspecting leaf patterns</span>
+            </div>
+            <div class="stage-item" id="stage2">
+              <div class="stage-dot">2</div>
+              <span>Identifying possible disease</span>
+            </div>
+            <div class="stage-item" id="stage3">
+              <div class="stage-dot">3</div>
+              <span>Estimating severity</span>
+            </div>
+            <div class="stage-item" id="stage4">
+              <div class="stage-dot">4</div>
+              <span>Preparing action plan</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- AI Result Dashboard -->
+    <section class="results-section" id="resultsSection">
+      <div class="container">
+        
+        <div class="results-header-banner">
+          <div class="results-meta-left">
+            <span id="aiModeBadge" class="badge badge-demo">● Demo AI Mode (Deterministic Prototype)</span>
+            <span class="badge badge-pill">AI Decision Support</span>
+          </div>
+          <button id="btnResetScan" class="btn btn-secondary" style="padding: 0.6rem 1.2rem; font-size: 0.88rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+            <span>Scan Another Crop</span>
+          </button>
+        </div>
+
+        <div class="results-grid-top">
+          <!-- Main Disease Overview Card -->
+          <div class="disease-overview-card glass-card">
+            <div class="disease-card-header">
+              <div>
+                <div class="crop-badge-row">
+                  <span class="crop-tag" id="resultCropName">Tomato</span>
+                  <span>•</span>
+                  <span class="pathogen-scientific" id="resultPathogen">Alternaria solani</span>
+                </div>
+                <h2 class="disease-name-title" id="resultDiseaseName">Tomato Early Blight</h2>
+              </div>
+            </div>
+
+            <div class="identification-metrics">
+              <div class="metric-item">
+                <h5>Confidence Score</h5>
+                <div class="metric-val-wrap">
+                  <span class="metric-val-number" id="resultConfidenceVal">94</span>
+                  <span class="metric-val-unit">%</span>
+                </div>
+                <div class="confidence-bar-bg">
+                  <div class="confidence-bar-fill" id="resultConfidenceBar" style="width: 94%;"></div>
+                </div>
+              </div>
+
+              <div class="metric-item">
+                <h5>Estimated Severity</h5>
+                <div class="metric-val-wrap">
+                  <span class="metric-val-number" id="resultSeverityVal" style="color: #ef4444;">High</span>
+                </div>
+                <p style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.4rem;">Foliar coverage evaluation</p>
+              </div>
+            </div>
+
+            <div class="symptoms-box">
+              <strong style="color: #ffffff; display: block; margin-bottom: 0.2rem;">Visible Pathology:</strong>
+              <span id="resultSymptomsSummary">Concentric ring target lesions with chlorotic yellow halo margins detected on lower foliage.</span>
+            </div>
+
+            <div class="disclaimer-banner">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              <span>This is an AI-assisted prototype result, not a definitive agricultural diagnosis. Always consult certified agronomic professionals.</span>
+            </div>
+          </div>
+
+          <!-- Crop Risk Meter (WOW FEATURE) Card -->
+          <div class="risk-meter-card glass-card">
+            <div class="risk-meter-title-wrap">
+              <h3>Crop Risk Meter</h3>
+              <p>Indicative 0–100 Decision Support Metric</p>
+            </div>
+
+            <div class="gauge-wrapper">
+              <svg class="gauge-svg" viewBox="0 0 260 140">
+                <defs>
+                  <linearGradient id="riskGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#22c55e"/>
+                    <stop offset="45%" stop-color="#f59e0b"/>
+                    <stop offset="100%" stop-color="#ef4444"/>
+                  </linearGradient>
+                </defs>
+                <path class="gauge-bg-arc" d="M 40 130 A 90 90 0 0 1 220 130"/>
+                <path class="gauge-fill-arc" id="gaugeFillArc" d="M 40 130 A 90 90 0 0 1 220 130" style="stroke-dasharray: 282.74; stroke-dashoffset: 62; stroke: #ef4444;"/>
+                <g class="gauge-needle" id="gaugeNeedle" style="transform: rotate(50deg);">
+                  <polygon points="130,130 126,45 130,35 134,45" fill="#ffffff"/>
+                  <circle cx="130" cy="130" r="10" fill="#04160c" stroke="#4ade80" stroke-width="3"/>
+                </g>
+              </svg>
+
+              <div class="gauge-center-readout">
+                <div class="gauge-score-number" id="gaugeScoreNum">78</div>
+                <div class="gauge-score-label">RISK INDEX</div>
+              </div>
+            </div>
+
+            <div class="risk-status-badge status-action" id="riskStatusBadge">
+              HIGH RISK (IMMEDIATE ACTION)
+            </div>
+
+            <p class="risk-explanation-text" id="riskExplanationText">
+              High confidence combined with higher estimated disease severity indicates that the crop should be inspected and addressed promptly.
+            </p>
+          </div>
+        </div>
+
+        <!-- Crop Health Snapshot Card -->
+        <div class="snapshot-card glass-card">
+          <div class="snapshot-grid">
+            <div>
+              <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.3rem;">
+                <span style="font-size: 1.2rem;">📋</span>
+                <h4>Your Crop Health Snapshot</h4>
+              </div>
+              <p style="font-size: 0.88rem;">Key executive summary parameters for your field record:</p>
+
+              <div class="snapshot-details-row">
+                <div class="snapshot-param">
+                  <h6>Crop Risk</h6>
+                  <p id="snapRiskVal">78/100</p>
+                </div>
+                <div class="snapshot-param">
+                  <h6>Risk Level</h6>
+                  <p id="snapLevelVal" style="color: #ef4444;">High</p>
+                </div>
+                <div class="snapshot-param">
+                  <h6>Recovery Outlook</h6>
+                  <p id="snapOutlookVal">Prompt Attention Needed</p>
+                </div>
+                <div class="snapshot-param">
+                  <h6>Action Window</h6>
+                  <p id="snapWindowVal">Within 48 hours</p>
+                </div>
+              </div>
+
+              <p class="snapshot-disclaimer-tag">Prototype decision-support estimate • Saved locally in your browser storage</p>
+            </div>
+
+            <div class="snapshot-actions">
+              <button id="btnSaveSnapshot" class="btn btn-primary btn-save-snapshot">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                <span>Save Crop Snapshot</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Actions Trio Grid -->
+        <div class="actions-trio-grid">
+          <div class="action-card glass-card">
+            <div class="card-title-row">
+              <div class="card-title-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+              </div>
+              <h3>Recommended Action</h3>
+            </div>
+
+            <ul class="action-list" id="treatmentList">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Prune and safely destroy lower leaves exhibiting early target-spot symptoms.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Apply approved copper-based or bio-fungicide protective sprays.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>Improve row spacing to increase airflow and accelerate foliage drying.</span>
+              </li>
+            </ul>
+
+            <div class="card-caution-note">
+              ℹ️ Treatment recommendations are general guidance. Follow local agricultural advice and product labels.
+            </div>
+          </div>
+
+          <div class="prevention-card glass-card">
+            <div class="card-title-row">
+              <div class="card-title-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3>Prevention Tips</h3>
+            </div>
+
+            <ul class="prevention-list" id="preventionList">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Switch to drip irrigation to avoid wetting upper leaf canopies.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Implement a 2-3 year crop rotation schedule avoiding Solanaceae.</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Apply organic mulch to prevent soil splashing of spores.</span>
+              </li>
+            </ul>
+
+            <div class="card-caution-note">
+              🌱 Consistent prevention protects soil microbial balance and minimizes seasonal losses.
+            </div>
+          </div>
+
+          <div class="urgency-card glass-card">
+            <div class="card-title-row">
+              <div class="card-title-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <h3>Action Urgency</h3>
+            </div>
+
+            <div class="urgency-badge-box urgency-high" id="urgencyBadgeBox">
+              <div class="urgency-level-text" id="urgencyLevelText">HIGH URGENCY</div>
+              <div class="urgency-window-text" id="urgencyWindowText">Within 48 hours</div>
+            </div>
+
+            <p class="urgency-advice-text" id="urgencyAdviceText">
+              Take prompt protective action and seek local agronomic guidance to preserve leaf canopy before fungal spread accelerates.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Farmer Support Schemes -->
+    <section class="support-section" id="farmer-support">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Government Portals</span>
+          <h2 class="section-title">Farmer Support Schemes</h2>
+          <p class="section-subtitle">Useful verified government support and insurance resources for farmers.</p>
+        </div>
+
+        <div class="schemes-filter-bar">
+          <button class="filter-pill active" data-filter="all">All Support</button>
+          <button class="filter-pill" data-filter="income">Income Support</button>
+          <button class="filter-pill" data-filter="insurance">Crop Insurance</button>
+          <button class="filter-pill" data-filter="soil">Soil Management</button>
+          <button class="filter-pill" data-filter="advisory">Agronomic Advisory</button>
+        </div>
+
+        <div class="schemes-grid" id="schemesGrid">
+          <!-- Populated via js/schemes.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="apiSettingsModal" role="dialog" aria-modal="true" aria-labelledby="apiModalTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="btnCloseApiModal" aria-label="Close API Modal">✕</button>
+      <h3 id="apiModalTitle" style="font-size: 1.3rem; margin-bottom: 0.5rem;">AI Integration Settings</h3>
+      <p class="text-muted" style="font-size: 0.88rem;">CropGuardian AI runs in <strong>Demo AI Mode</strong> by default without requiring an API key. You can optionally connect a Gemini API Key for live multimodal inference.</p>
+      
+      <div class="input-field-group">
+        <label for="apiKeyInput" class="input-label">Gemini API Key (Optional):</label>
+        <input type="password" id="apiKeyInput" class="text-input" placeholder="AIzaSy...">
+        <span style="font-size: 0.75rem; color: #94a3b8;">Stored only locally in your browser session. Never exposed in source code.</span>
+      </div>
+
+      <div style="display: flex; gap: 0.8rem; justify-content: flex-end;">
+        <button class="btn btn-primary" id="btnSaveApiKey">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="historyModal" role="dialog" aria-modal="true" aria-labelledby="historyModalTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="btnCloseHistoryModal" aria-label="Close History Modal">✕</button>
+      <h3 id="historyModalTitle" style="font-size: 1.3rem; margin-bottom: 0.5rem;">Saved Crop Snapshots</h3>
+      <p class="text-muted" style="font-size: 0.88rem;">Local history of your recent crop diagnostic sessions.</p>
+      
+      <div class="snapshots-history-list" id="historyListContainer"></div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <h4>CropGuardian <span class="text-lime">AI</span></h4>
+          <p class="text-muted">Helping farmers detect crop diseases early before they lose their harvest through computer vision and actionable decision support.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Navigation</h5>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#scanner">Crop Scanner</a></li>
+            <li><a href="#farmer-support">Farmer Support Schemes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Safety & Compliance</h5>
+          <ul class="footer-links">
+            <li><span class="text-muted">Prototype Decision Support</span></li>
+            <li><span class="text-muted">Non-Definitive Diagnosis</span></li>
+            <li><span class="text-muted">Zero Server Data Retention</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <span>© 2026 CropGuardian AI. Presentation-Ready Hackathon Prototype.</span>
+        <span>Built with pure HTML5, CSS3, & Vanilla JavaScript.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/upload.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/riskMeter.js"></script>
+  <script src="js/schemes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

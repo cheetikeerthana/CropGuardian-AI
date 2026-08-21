@@ -1,0 +1,42 @@
+[
+  {
+    "id": "tomato",
+    "name": "Tomato",
+    "scientificName": "Solanum lycopersicum",
+    "category": "Solanaceae (Nightshade)",
+    "icon": "\ud83c\udf45",
+    "description": "Widely cultivated high-value crop susceptible to fungal leaf spots, blights, and viruses."
+  },
+  {
+    "id": "rice",
+    "name": "Rice (Paddy)",
+    "scientificName": "Oryza sativa",
+    "category": "Poaceae (Gramineae)",
+    "icon": "\ud83c\udf3e",
+    "description": "Staple food crop vulnerable to blast fungus, brown spot, and bacterial leaf blight."
+  },
+  {
+    "id": "cotton",
+    "name": "Cotton",
+    "scientificName": "Gossypium hirsutum",
+    "category": "Malvaceae (Mallows)",
+    "icon": "\ud83c\udf31",
+    "description": "Major commercial cash crop prone to fungal leaf spots, bacterial blight, and wilt diseases."
+  },
+  {
+    "id": "potato",
+    "name": "Potato",
+    "scientificName": "Solanum tuberosum",
+    "category": "Solanaceae (Nightshade)",
+    "icon": "\ud83e\udd54",
+    "description": "Essential tuber crop with high sensitivity to early and late fungal foliage blights."
+  },
+  {
+    "id": "maize",
+    "name": "Maize (Corn)",
+    "scientificName": "Zea mays",
+    "category": "Poaceae (Gramineae)",
+    "icon": "\ud83c\udf3d",
+    "description": "Vital cereal crop susceptible to northern leaf blight, common rust, and leaf spot."
+  }
+]

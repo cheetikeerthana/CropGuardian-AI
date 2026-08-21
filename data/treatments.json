@@ -1,0 +1,127 @@
+{
+  "Tomato Early Blight": {
+    "treatments": [
+      "Prune and safely destroy lower leaves exhibiting early target-spot symptoms to reduce spore spread.",
+      "Apply approved protective copper fungicide or bio-agent spray per local agricultural recommendations.",
+      "Improve plant trellising and spacing to increase air circulation and keep foliage dry.",
+      "Consult your local Krishi Vigyan Kendra (KVK) or extension officer if lesions spread to stems or fruit."
+    ],
+    "prevention": [
+      "Switch to drip irrigation or furrow watering to avoid wetting upper leaf canopies.",
+      "Implement a 2-3 year crop rotation schedule avoiding other Solanaceae (potatoes, eggplants).",
+      "Apply organic straw or plastic mulch around plant bases to prevent soil splashing of spores.",
+      "Sanitize all pruning shears and tools with diluted disinfectant between planting beds."
+    ],
+    "urgency": {
+      "level": "HIGH",
+      "badge": "High Urgency",
+      "actionWindow": "Within 48 hours",
+      "recommendation": "Take prompt protective action and seek local agronomic guidance to preserve leaf canopy."
+    },
+    "recoveryOutlook": "Good if addressed promptly before fungal lesions spread to fruit clusters."
+  },
+  "Tomato Late Blight": {
+    "treatments": [
+      "Immediately isolate infected plants and remove severely blighted vines into sealed bags.",
+      "Apply targeted systemic or contact anti-oomycete sprays recommended by certified agronomists.",
+      "Avoid overhead watering completely and inspect surrounding rows daily.",
+      "Harvest unaffected mature fruits early if humid conditions persist."
+    ],
+    "prevention": [
+      "Plant certified disease-resistant tomato hybrids during monsoon or high-humidity seasons.",
+      "Ensure wide plant spacing (minimum 60 cm) to facilitate rapid wind circulation.",
+      "Eliminate cull piles, volunteer tomato seedlings, and wild nightshade weeds.",
+      "Monitor regional agro-meteorological disease forecast alerts."
+    ],
+    "urgency": {
+      "level": "HIGH",
+      "badge": "Immediate Action",
+      "actionWindow": "Within 24 hours",
+      "recommendation": "Immediate field intervention required. Late blight can rapidly defoliate entire crop stands."
+    },
+    "recoveryOutlook": "Guarded. Rapid intervention is vital to contain whole-field sporulation."
+  },
+  "Rice Leaf Blast": {
+    "treatments": [
+      "Regulate field water levels maintaining shallow standing water (2-5 cm) to suppress blast spread.",
+      "Temporarily suspend excessive top-dress nitrogen fertilizers which exacerbate foliage susceptibility.",
+      "Apply recommended bio-control agents (Pseudomonas fluorescens) or approved triazole fungicide sprays.",
+      "Spray during early morning or late afternoon when wind speeds are minimal."
+    ],
+    "prevention": [
+      "Treat seeds before sowing with recommended bio-priming agents or hot-water sanitation.",
+      "Adopt split application of nitrogenous fertilizers balanced with adequate potassium and silica.",
+      "Maintain clean bunds by weeding wild grassy host plants that harbor blast spores.",
+      "Cultivate blast-tolerant paddy varieties suited for your agro-climatic zone."
+    ],
+    "urgency": {
+      "level": "HIGH",
+      "badge": "High Urgency",
+      "actionWindow": "Within 48 hours",
+      "recommendation": "Take prompt agronomic and field water management action before blast reaches panicle stage."
+    },
+    "recoveryOutlook": "Favorable with nitrogen regulation and timely protective spray before neck-blast phase."
+  },
+  "Cotton Leaf Spot": {
+    "treatments": [
+      "Remove and destroy heavily spotted senescing leaves from bottom nodes.",
+      "Apply foliar potassium sprays if leaf spot is associated with nutrient deficiency stress.",
+      "Apply approved protective copper oxychloride or mancozeb sprays as guided by local experts.",
+      "Maintain optimal field drainage to avoid root hypoxia after heavy rains."
+    ],
+    "prevention": [
+      "Ensure balanced N-P-K soil nutrition based on recent Soil Health Card recommendations.",
+      "Destroy cotton crop residues thoroughly after the final harvest picking.",
+      "Follow recommended seed treatment protocols prior to sowing.",
+      "Space cotton rows properly to avoid dense canopy micro-climates."
+    ],
+    "urgency": {
+      "level": "MODERATE",
+      "badge": "Moderate Urgency",
+      "actionWindow": "Within 3-5 days",
+      "recommendation": "Monitor closely, inspect surrounding rows, and balance foliar nutrition."
+    },
+    "recoveryOutlook": "Moderate to High. Yield impact remains low if leaf spot is contained before mid-boll development."
+  },
+  "Potato Early Blight": {
+    "treatments": [
+      "Rogue out severely affected foliage to limit airborne conidial spore load.",
+      "Apply certified protective fungicide barrier on healthy adjacent rows.",
+      "Ensure plants are well-watered at the root zone without causing soil saturation.",
+      "Maintain tuber hilling to prevent fungal spores from washing down into potato tubers."
+    ],
+    "prevention": [
+      "Use certified disease-free potato seed tubers.",
+      "Practice 3-year crop rotation with non-host cereals or legumes.",
+      "Maintain optimum soil potassium and nitrogen levels to support crop vigor.",
+      "Harvest tubers only after vine maturity and avoid skinning during digging."
+    ],
+    "urgency": {
+      "level": "MODERATE",
+      "badge": "Moderate Urgency",
+      "actionWindow": "Within 3 days",
+      "recommendation": "Inspect lower canopy and apply preventive protective barrier."
+    },
+    "recoveryOutlook": "Good if managed early; prevents premature vine death and ensures proper tuber sizing."
+  },
+  "Healthy Tomato Leaf": {
+    "treatments": [
+      "No chemical or corrective treatment required. Crop demonstrates optimal physiological health.",
+      "Continue standard organic fertilization, regular scouting, and moisture maintenance.",
+      "Ensure supportive staking and gentle pruning of bottom suckers for adequate air flow."
+    ],
+    "prevention": [
+      "Maintain uniform drip irrigation schedule to prevent blossom-end rot and foliage moisture.",
+      "Keep scouting twice weekly during high humidity or rain transitions.",
+      "Preserve beneficial predator insects (ladybugs, hoverflies) for natural pest control.",
+      "Regularly replenish organic mulch layers."
+    ],
+    "urgency": {
+      "level": "LOW",
+      "badge": "Optimal Condition",
+      "actionWindow": "Routine Schedule",
+      "recommendation": "Continue regular preventative monitoring and standard agronomic care."
+    },
+    "recoveryOutlook": "Excellent (Crop is thriving with zero active pathology detected)."
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "Tomato Early Blight": {
+    "crop": "Tomato",
+    "pathogen": "Alternaria solani (Fungus)",
+    "symptoms": "Concentric rings with yellow halos creating target spots on older lower foliage.",
+    "idealConditions": "Warm temperatures (24-29\u00b0C) with frequent wet canopy conditions.",
+    "severityBase": "High",
+    "defaultConfidence": 94,
+    "riskScore": 78
+  },
+  "Tomato Late Blight": {
+    "crop": "Tomato",
+    "pathogen": "Phytophthora infestans (Oomycete)",
+    "symptoms": "Dark water-soaked lesions with white mold fuzz under high humidity.",
+    "idealConditions": "Cool, humid weather (15-20\u00b0C) with persistent dampness.",
+    "severityBase": "High",
+    "defaultConfidence": 91,
+    "riskScore": 85
+  },
+  "Rice Leaf Blast": {
+    "crop": "Rice (Paddy)",
+    "pathogen": "Magnaporthe oryzae (Fungus)",
+    "symptoms": "Spindle/diamond-shaped lesions with grayish centers and dark borders.",
+    "idealConditions": "High humidity (>90%) with heavy nitrogen fertilizer application.",
+    "severityBase": "High",
+    "defaultConfidence": 89,
+    "riskScore": 75
+  },
+  "Cotton Leaf Spot": {
+    "crop": "Cotton",
+    "pathogen": "Cercospora gossypina",
+    "symptoms": "Small circular reddish-brown necrotic spots with purple margins.",
+    "idealConditions": "Intermittent rain followed by warm sunny periods.",
+    "severityBase": "Medium",
+    "defaultConfidence": 88,
+    "riskScore": 54
+  },
+  "Potato Early Blight": {
+    "crop": "Potato",
+    "pathogen": "Alternaria solani",
+    "symptoms": "Brown circular spots with concentric rings on mature lower leaves.",
+    "idealConditions": "Warm days alternating with high dew and wet foliage.",
+    "severityBase": "Medium",
+    "defaultConfidence": 92,
+    "riskScore": 58
+  },
+  "Healthy Tomato Leaf": {
+    "crop": "Tomato",
+    "pathogen": "None (Healthy Tissue)",
+    "symptoms": "Uniform vibrant green color, intact margins, active photosynthesis, no lesions.",
+    "idealConditions": "Balanced sunlight, proper irrigation, and healthy nutrient levels.",
+    "severityBase": "Healthy",
+    "defaultConfidence": 98,
+    "riskScore": 10
+  }
+}
